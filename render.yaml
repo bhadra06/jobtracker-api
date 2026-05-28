@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: jobtracker-api
+    runtime: java
+    plan: free
+    region: singapore
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -Dspring.profiles.active=prod -jar target/jobtracker-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: JAVA_VERSION
+        value: 21
